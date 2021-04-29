@@ -1,5 +1,6 @@
 import React, {useRef, useEffect, useState, Fragment} from 'react';
-
+import {Link} from 'react-router-dom'; 
+ 
 const Landing = () => {
 
     const [btn, setBtn] = useState(false);
@@ -32,11 +33,11 @@ const Landing = () => {
         <Fragment>
             <div onMouseOver={setLeftImg}
                 onMouseOut={clearImg} className="leftBox">
-               <button className="btn-welcome">Inscription</button>
+               <Link to="/signup" className="btn-welcome">Inscription</Link >
             </div>
             <div onMouseOver={setRightImg}
                 onMouseOut={clearImg} className="rightBox">
-                <button className="btn-welcome">Connexion</button>
+                <Link to="/login" className="btn-welcome">Connexion</Link >
             </div>
         </Fragment>
     )
