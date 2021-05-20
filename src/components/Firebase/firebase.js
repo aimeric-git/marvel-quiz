@@ -30,6 +30,9 @@ class Firebase {
     signoutUser = () => {
         this.auth.signOut()
     }
+
+    //recuperer le mdp
+    passwordReset = (email) => this.auth.sendPasswordResetEmail(email); 
 }
 
 export default Firebase;
