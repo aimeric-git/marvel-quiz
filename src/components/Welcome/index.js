@@ -8,32 +8,50 @@ const Welcome = (props) => {
     const firebase = useContext(FirebaseContext); 
 
     const [userSession, setUserSession] = useState(null);
+    const [userData, setUserData] = useState({});
     
-    useEffect(() => {
+    // useEffect(() => {
         
-        let listener = firebase.auth.onAuthStateChanged(user => {
-            user ? setUserSession(user) : props.history.push('/');
-        });
+    //     let listener = firebase.auth.onAuthStateChanged(user => {
+    //         user ? setUserSession(user) : props.history.push('/');
+    //     });
 
+    //     if (!!userSession) {
+            
+    //         firebase.user(userSession.uid)
+    //         .get()
+    //         .then( doc => {
+    //             if (doc && doc.exists) {
+    //                 const myData = doc.data();
+    //                 setUserData(myData)
+    //             }
+    //         })
+    //         .catch( (error) => {
+    //             console.log(error); 
+    //         })
+    //     }
 
-        return () => {
-            listener()
-        }
-    }, []);
-    return userSession === null ? (
-        <Fragment>
-            <div className="loader"></div>
-            <p>Loading ...</p>
-        </Fragment>
-    ) : (
+    //     return () => {
+    //         listener()
+    //     }
+    // }, [userSession]);
+
+    // return userSession === null ? (
+    //     <Fragment>
+    //         <div className="loader"></div>
+    //         <p>Loading ...</p>
+    //     </Fragment>
+    // ) : (
+    return (
 
         <div ClassName="quiz-bg">
             <div className="container">
                 <Logout />
-                <Quiz />
+                <Quiz userData={userData} />
             </div>
         </div>
-    ); 
+    // ); 
+    )
 }
 
 export default Welcome;
